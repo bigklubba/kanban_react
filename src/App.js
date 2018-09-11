@@ -85,7 +85,7 @@ class App extends Component {
     const {loading, value, backlogTasks, doneTasks, ongoingTasks} = this.state
     return (
       <div className="App">
-        <AppBar position="static">
+        <AppBar position="static" style={{ position: "fixed" }}>
           <Toolbar>
             <Typography variant="title" color="inherit" style={{flexGrow: 1}}>
               Kanban
@@ -98,7 +98,7 @@ class App extends Component {
         <Fade in={loading} style={{transitionDelay: loading ? '800ms' : '0ms',}} unmountOnExit>
           <LinearProgress/>
         </Fade>
-        <Tabs textColor="primary" value={value} fullWidth onChange={this.handleChange}>
+        <Tabs style={{ paddingTop: 64 }} textColor="primary" value={value} fullWidth onChange={this.handleChange}>
           <Tab label="BACKLOG"/>
           <Tab label="ONGOING"/>
           <Tab label="DONE"/>
