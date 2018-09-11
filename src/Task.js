@@ -25,7 +25,8 @@ class Task extends Component {
 
   handleDelete = () => {
     this.handleClose()
-    console.log("delete")
+    console.log("delete "+this.props.text)
+    this.props.onDelete(this.props.index)
   }
 
   constructor(props) {
@@ -37,9 +38,9 @@ class Task extends Component {
   }
 
   render() {
-    const { anchorEl, index } = this.state;
+    const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
-    const { text } = this.props;
+    const { text, index } = this.props;
     return (
       <ListItem dense divider>
         <Grid container direction="column" justify="flex-start" alignItems="flex-start">
