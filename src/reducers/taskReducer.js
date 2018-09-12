@@ -23,7 +23,10 @@ export default function(state = {
         }
       }
       case 'FETCHED_TASKS': {
-
+        console.log(fetched)
+        const newTasks={...state.tasks}
+        newTasks[action.payload.state] = action.payload.tasks
+        return {...state, tasks: newTasks }
       }
     }
   }
