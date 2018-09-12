@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button'
-import List from '@material-ui/core/List'
 import LinearProgress from '@material-ui/core/LinearProgress'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -10,9 +9,7 @@ import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
 import AddIcon from '@material-ui/icons/Add'
 import SwipeableViews from 'react-swipeable-views'
-import Task from './Task'
-import TaskList from './TaskList'
-import logo from './logo.svg';
+import TaskList from './components/TaskList'
 import './App.css';
 
 
