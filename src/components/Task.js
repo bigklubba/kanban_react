@@ -20,13 +20,12 @@ class Task extends Component {
 
   handleClose = () => {
     this.setState({ anchorEl: null })
-    console.log("closed")
   }
 
   handleDelete = () => {
     this.handleClose()
-    console.log("delete "+this.props.text)
-    this.props.onDelete(this.props.index)
+    console.log("delete "+this.props.id)
+    this.props.onDelete(this.props.id)
   }
 
   componentDidMount = () => {

@@ -79,41 +79,41 @@ class App extends Component {
   };
 
   render() {
-    const {loading, value, backlogTasks, doneTasks, ongoingTasks} = this.state
+    const {loading, value} = this.state
     return (
       <div className="App">
-        <AppBar position="static" style={{ position: "fixed" }}>
-          <Toolbar>
-            <Typography variant="title" color="inherit" style={{flexGrow: 1}}>
-              Kanban
-            </Typography>
-          <Button mini variant="fab" color="secondary" aria-label="Add">
-            <AddIcon/>
-          </Button>
-          </Toolbar>
-        </AppBar>
-        <Fade in={loading} style={{transitionDelay: loading ? '800ms' : '0ms',}} unmountOnExit>
-          <LinearProgress/>
-        </Fade>
-        <Tabs style={{ paddingTop: 64 }} textColor="primary" value={value} fullWidth onChange={this.handleChange}>
-          <Tab label="BACKLOG"/>
-          <Tab label="ONGOING"/>
-          <Tab label="DONE"/>
-        </Tabs>
-        <SwipeableViews
-          index={this.state.value}
-          onChangeIndex={this.handleChangeIndex}
-        >
-          <TabContainer>
-            <TaskList tasks={backlogTasks} removeFn={(i, s) => this.removeTask(i, 0)}/>
-          </TabContainer>
-          <TabContainer>
-            <TaskList tasks={ongoingTasks} removeFn={(i, s) => this.removeTask(i, 1)}/>
-          </TabContainer>
-          <TabContainer>
-            <TaskList tasks={doneTasks} removeFn={(i, s) => this.removeTask(i, 2)}/>
-          </TabContainer>
-        </SwipeableViews>
+          <AppBar position="static" style={{ position: "fixed" }}>
+            <Toolbar>
+              <Typography variant="title" color="inherit" style={{flexGrow: 1}}>
+                Kanban
+              </Typography>
+            <Button mini variant="fab" color="secondary" aria-label="Add">
+              <AddIcon/>
+            </Button>
+            </Toolbar>
+          </AppBar>
+          <Fade in={loading} style={{transitionDelay: loading ? '800ms' : '0ms',}} unmountOnExit>
+            <LinearProgress/>
+          </Fade>
+          <Tabs style={{ paddingTop: 64 }} textColor="primary" value={value} fullWidth onChange={this.handleChange}>
+            <Tab label="BACKLOG"/>
+            <Tab label="ONGOING"/>
+            <Tab label="DONE"/>
+          </Tabs>
+          <SwipeableViews
+            index={this.state.value}
+            onChangeIndex={this.handleChangeIndex}
+          >
+            <TabContainer>
+              <TaskList state={'backlog'} removeFn={(i, s) => this.removeTask(i, 0)}/>
+            </TabContainer>
+            <TabContainer>
+              <TaskList state={'ongoing'} removeFn={(i, s) => this.removeTask(i, 1)}/>
+            </TabContainer>
+            <TabContainer>
+              <TaskList state={'done'} removeFn={(i, s) => this.removeTask(i, 2)}/>
+            </TabContainer>
+          </SwipeableViews>
       </div>
     );
   }

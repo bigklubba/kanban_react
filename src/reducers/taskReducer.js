@@ -1,13 +1,15 @@
-export default function(state = {
-    tasks: {
-      backlog: [],
-      ongoing: [],
-      done: []
-    },
-    fetching: false,
-    fetched: false,
-    error: null
-  }, action) {
+const initialState = {
+  tasks: {
+    backlog: [],
+    ongoing: [],
+    done: []
+  },
+  fetching: false,
+  fetched: false,
+  error: null
+}
+
+export default function(state = initialState , action) {
     switch(action.type) {
       case 'TASK_DELETED': {
         console.log('TASK_DELETED '+action.payload)
@@ -23,10 +25,15 @@ export default function(state = {
         }
       }
       case 'FETCHED_TASKS': {
-        console.log(fetched)
+        console.log('fetched '+action.payload.state)
         const newTasks={...state.tasks}
         newTasks[action.payload.state] = action.payload.tasks
-        return {...state, tasks: newTasks }
+        let a = {...state, tasks: newTasks }
+        return a
+      }
+      default: {
+        return state
       }
     }
+    return state
   }
