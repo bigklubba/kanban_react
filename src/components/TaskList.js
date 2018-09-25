@@ -18,7 +18,7 @@ class TaskList extends Component {
     return (
       <List>
         {tasks.map(task => (
-          <Task text={task.text} index={task.index} id={task.id} onDelete={(taskId) => this.onDelete(taskId)}></Task>
+          <Task key={task.id} text={task.text} index={task.index} id={task.id} onDelete={(taskId) => this.onDelete(taskId)}></Task>
         ))}
       </List>
 
